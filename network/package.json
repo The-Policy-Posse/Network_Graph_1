@@ -1,0 +1,17 @@
+{
+  "name": "never-put-on-git",
+  "version": "1.0.0",
+  "main": "database.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google-cloud/cloud-sql-connector": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "pg": "^8.13.1"
+  }
+}
