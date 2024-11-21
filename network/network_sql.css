@@ -1,0 +1,220 @@
+/* Core Layout */
+body {
+    margin: 0;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
+
+/* Two-column layout: sidebar and main content */
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Fixed sidebar width, flexible main content */
+    height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+    padding: 1rem;
+    border-right: 1px solid #e1e4e8;
+    background: #f6f8fa;
+    overflow-y: visible;
+}
+
+.main-content {
+    position: relative; /* For absolute positioning of child elements */
+}
+
+/* Control Elements Styling */
+.controls {
+    margin-bottom: 1rem;
+}
+
+/* Search box styling */
+.search-box {
+    width: 93%;
+    padding: 8px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+
+/* Filter group container styling */
+.filter-group {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+
+.filter-group h4 {
+    margin: 0 0 0.5rem 0;
+}
+
+.filter-value {
+    font-size: 0.9rem;
+    color: #586069;
+    margin-top: 0.25rem;
+}
+
+/* Select2 Customization */
+.select2-container {
+    width: 100% !important;
+    margin-top: 0.5rem;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    height: 38px;
+    padding: 4px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 36px;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #0366d6;
+}
+
+.select2-dropdown {
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+
+/* Party indicator dots */
+.party-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Party colors */
+.party-D { background: #0366d6; } /* Democrat - Blue */
+.party-R { background: #d73a49; } /* Republican - Red */
+.party-I { background: #6a737d; } /* Independent - Gray */
+
+/* Legend styling */
+.legend {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #e1e4e8;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* Node information panel styling */
+.node-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+
+/* Bill list container */
+.bill-list {
+    max-height: 800px;
+    overflow-y: auto;    /* Scrollable container for bills */
+    margin-top: 1rem;
+}
+
+/* Individual bill item styling */
+.bill-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e1e4e8;
+    font-size: 0.9rem;
+}
+
+/* Node label styling for network visualization */
+.node-label {
+    font-size: 8px;
+    pointer-events: none;  /* Prevents labels from interfering with interactions */
+    fill: #24292e;
+}
+
+/* Statistics grid layout */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Two equal columns */
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+/* Individual stat box styling */
+.stat-box {
+    padding: 0.8rem;
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0366d6;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #586069;
+    margin-top: 0.2rem;
+}
+
+/* Policy tag styling */
+.policy-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #f1f8ff;
+    border: 1px solid #c8e1ff;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #0366d6;
+    margin: 2px;
+}
+
+/* Bill policy information */
+.bill-policy {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: #0366d6;
+}
+
+/* Network node states */
+.selected-node {
+    stroke: #f1e05a !important;     /* Yellow highlight for selected nodes */
+    stroke-width: 3px !important;
+}
+
+.dimmed {
+    opacity: 0.07 !important;       /* For nodes not currently in focus */
+}
+
+.highlighted {
+    opacity: 1 !important;          /* For nodes currently in focus */
+}
+
+/* Tooltip styling for hover information */
+.tooltip {
+    position: absolute;
+    padding: 8px;
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    pointer-events: none;           /* Prevents tooltip from interfering with interactions */
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Note for sampling information */
+.sampling-note {
+    font-style: italic;
+    border-top: 1px solid #e1e4e8;
+    padding-top: 0.5rem;
+}
