@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legislative Network Analysis</title>
+
+    <!-- External Libraries -->
+    <!-- D3.js - Data visualization library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    
+    <!-- Select2 - Enhanced dropdown/search library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    
+    <!-- jQuery - Required for Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="network_sql.css">
+</head>
+<body>
+    <!-- Main container with sidebar and visualization area -->
+    <div class="container">
+        <!-- Sidebar containing controls and information -->
+        <div class="sidebar">
+            <!-- Network metadata section -->
+            <div class="filter-group">
+                <h4>Network Information</h4>
+                <div id="metadata"></div>
+            </div>
+
+            <!-- Control panel section -->
+            <div class="controls">
+                <!-- Legislator search box -->
+                <input 
+                    type="text" 
+                    id="legislator-search" 
+                    name="legislator-search" 
+                    class="search-box" 
+                    placeholder="Search legislators..."
+                    autocomplete="off"
+                >
+
+                <!-- Collaboration threshold slider -->
+                <div class="filter-group">
+                    <h4>Minimum Collaborations</h4>
+                    <input 
+                        type="range" 
+                        id="connection-threshold" 
+                        name="connection-threshold"
+                        min="1" 
+                        max="20" 
+                        value="10"
+                    >
+                    <div class="filter-value">10 collaborations</div>
+                </div>
+
+                <!-- Policy/Subject area filter dropdown -->
+                <div class="filter-group">
+                    <h4>Subject Area Filter</h4>
+                    <select id="policy-filter" class="policy-filter">
+                        <option value="all">All Subject Areas</option>
+                    </select>
+                    <div class="filter-value" id="policy-count"></div>
+                </div>
+            </div>
+
+            <!-- Statistics display -->
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="active-legislators">0</div>
+                    <div class="stat-label">Legislators</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="active-connections">0</div>
+                    <div class="stat-label">Connections</div>
+                </div>
+            </div>
+
+            <!-- Node information panel (populated when node is selected) -->
+            <div class="node-info"></div>
+        </div>
+
+        <!-- Main visualization area -->
+        <div class="main-content">
+            <!-- SVG container for network visualization -->
+            <svg width="100%" height="100%"></svg>
+            
+            <!-- Legend overlay -->
+            <div class="legend">
+                <h4 style="margin-top: 0">Legend</h4>
+                <div><span class="party-dot party-D"></span>Democrat</div>
+                <div><span class="party-dot party-R"></span>Republican</div>
+                <div><span class="party-dot party-I"></span>Independent</div>
+                <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #586069;">
+                    Node size indicates number of collaborations<br>
+                    Line thickness indicates collaboration strength<br>
+                    Click node to highlight connections
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="network_sql.js"></script>
+</body>
+</html>
